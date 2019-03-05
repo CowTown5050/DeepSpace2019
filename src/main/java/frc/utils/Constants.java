@@ -51,7 +51,7 @@ public final class Constants {
     public static final int HATCH_PLACE_ENCODER_POSITION;
     public static final int HATCH_PULL_ENCODER_POSITION;
     public static final boolean ELEVATOR_LIMIT_SWITCH_INVERTED;
-    public static final Robot ROBOT = Robot.B_BOT;
+    public static final Robot ROBOT = Robot.A_BOT;
     private static final String DEFAULT_NETWORK_TABLE_KEY = "SmartDashboard";
     private static final boolean USE_CUSTOM_NETWORK_TABLE_KEYS = true;
 
@@ -78,10 +78,10 @@ public final class Constants {
                 UPPER_DIST_FROM_GROUND = inchesToMeters(77.5);
                 HAB3_ENCODER_VALUE = 22000;
                 HAB2_ENCODER_VALUE = 8500;
-                REAR_MOTION_MAGIC_VELOCITY_LIFT = 1000;
-                REAR_MOTION_MAGIC_ACCELERATION_LIFT = 400;
-                FRONT_MOTION_MAGIC_VELOCITY_LIFT = 700;
-                FRONT_MOTION_MAGIC_ACCELERATION_LIFT = 650;
+                REAR_MOTION_MAGIC_VELOCITY_LIFT = 2000;
+                REAR_MOTION_MAGIC_ACCELERATION_LIFT = 1500;
+                FRONT_MOTION_MAGIC_VELOCITY_LIFT = 1700;
+                FRONT_MOTION_MAGIC_ACCELERATION_LIFT = 1700;
                 ELEVATOR_POSITION_LOOP_KV = -0.68;
                 break;
             case B_BOT:

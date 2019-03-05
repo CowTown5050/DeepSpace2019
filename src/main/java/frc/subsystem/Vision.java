@@ -19,7 +19,7 @@ public final class Vision {
         configureUsbCamera(hatchCamera);
         configureUsbCamera(leftCargoCamera);
         configureUsbCamera(rightCargoCamera);
-        configureUsbCamera(testCamera);
+        configureFishCamera(testCamera);
     }
 
     private static void configureUsbCamera(UsbCamera camera) {
@@ -27,6 +27,13 @@ public final class Vision {
         camera.setWhiteBalanceAuto();
         camera.setFPS(FPS);
         camera.setResolution(IMAGE_WIDTH, IMAGE_HEIGHT);
+    }
+
+    private static void configureFishCamera(UsbCamera camera) {
+        camera.setExposureAuto();
+        camera.setWhiteBalanceManual(50);
+        camera.setFPS(FPS);
+
     }
 
     public static Vision getInstance() {
