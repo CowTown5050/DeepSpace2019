@@ -78,10 +78,10 @@ public final class Constants {
                 UPPER_DIST_FROM_GROUND = inchesToMeters(77.5);
                 HAB3_ENCODER_VALUE = 22000;
                 HAB2_ENCODER_VALUE = 8500;
-                REAR_MOTION_MAGIC_VELOCITY_LIFT = 2000;
-                REAR_MOTION_MAGIC_ACCELERATION_LIFT = 1500;
-                FRONT_MOTION_MAGIC_VELOCITY_LIFT = 1700;
-                FRONT_MOTION_MAGIC_ACCELERATION_LIFT = 1700;
+                REAR_MOTION_MAGIC_VELOCITY_LIFT = 4000;
+                REAR_MOTION_MAGIC_ACCELERATION_LIFT = 1400;
+                FRONT_MOTION_MAGIC_VELOCITY_LIFT = 2000;
+                FRONT_MOTION_MAGIC_ACCELERATION_LIFT = 2000;
                 ELEVATOR_POSITION_LOOP_KV = -0.68;
                 break;
             case B_BOT:
