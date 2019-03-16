@@ -23,17 +23,17 @@ import static frc.utils.Constants.*;
 public final class Jacks extends Subsystem {
   // Motion magic parameters when retracting
   private static final int REAR_MOTION_MAGIC_VELOCITY_RETRACT = 4000;
-  private static final int REAR_MOTION_MAGIC_ACCELERATION_RETRACT = 1500;
+  private static final int REAR_MOTION_MAGIC_ACCELERATION_RETRACT = 4000;
   private static final int FRONT_MOTION_MAGIC_VELOCITY_RETRACT = 4000;
-  private static final int FRONT_MOTION_MAGIC_ACCELERATION_RETRACT = 1500;
+  private static final int FRONT_MOTION_MAGIC_ACCELERATION_RETRACT = 4000;
   private static final int LIFT_TOLERANCE = 350;
   private static boolean waspressed = false;
   private static final DriveSignal RETRACT_FRONT_JACK_DRIVE_BASE = new DriveSignal(0.3, 0.3);
   private static final DriveSignal RUN_DRIVE_BASE_HAB_CLIMB = new DriveSignal(0.2, 0.2);
 
   private static final DriveSignal RUN_JACK_WHEELS_HAB_CLIMB = new DriveSignal(1.0, 1.0);
-  private static final double MAX_AMP_DRAW_ZEROING = 5.0;
-  private static final double HAB_CLIMB_FINISH_DRIVING_TIME = 1;
+  private static final double MAX_AMP_DRAW_ZEROING = 4.0;
+  private static final double HAB_CLIMB_FINISH_DRIVING_TIME = .5;
   private static Jacks instance;
   private final GameController controller;
   private final CheapWpiTalonSrx rightRearJack;
@@ -271,6 +271,7 @@ public final class Jacks extends Subsystem {
   }
 
   private synchronized boolean zero() {
+    setWheels(new DriveSignal(0.0, 0.0));
     if (periodicIo.frontJackCurrentDraw >= MAX_AMP_DRAW_ZEROING && !periodicIo.frontHasZeroed) {
       periodicIo.frontHasZeroed = true;
       frontJack.setSelectedSensorPosition(0, 0, 30);
@@ -278,7 +279,7 @@ public final class Jacks extends Subsystem {
       periodicIo.frontJackControlMode = JackState.STOP.getControlMode();
     }
 
-    if (periodicIo.leftJackCurrentDraw >= MAX_AMP_DRAW_ZEROING && !periodicIo.leftHasZeroed) {
+    if (periodicIo.leftJackCurrentDraw >= MAX_AMP_DRAW_ZEROING && !periodicIo.leftHasZeroed) { //You broke crap here!!!
       periodicIo.leftHasZeroed = true;
       leftRearJack.setSelectedSensorPosition(0, 0, SETTINGS_TIMEOUT);
       periodicIo.leftJackDemand = JackState.STOP.getDemand();

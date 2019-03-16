@@ -119,6 +119,7 @@ public class Robot extends TimedRobot {
     @Override
     public void disabledPeriodic() {
         gameController.disabledPeriodic();
+        hatch.stop();
     }
 
     @Override

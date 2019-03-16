@@ -4,7 +4,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 
 public final class Vision {
-    private static final int FPS = 15;
+    private static final int FPS = 10;
     private static final int IMAGE_WIDTH = 160;
     private static final int IMAGE_HEIGHT = 120;
     private static Vision instance;
@@ -23,16 +23,14 @@ public final class Vision {
     }
 
     private static void configureUsbCamera(UsbCamera camera) {
-        camera.setExposureManual(60);
-        camera.setWhiteBalanceAuto();
+        camera.setExposureManual(45);
+        camera.setWhiteBalanceManual(60);
         camera.setFPS(FPS);
         camera.setResolution(IMAGE_WIDTH, IMAGE_HEIGHT);
     }
 
     private static void configureFishCamera(UsbCamera camera) {
-        camera.setExposureAuto();
-        camera.setWhiteBalanceManual(50);
-        camera.setFPS(FPS);
+        camera.setResolution(360, 240);
 
     }
 
