@@ -131,7 +131,7 @@ public final class OperatorGamepad implements OperatorHid {
 
     @Override
     public double hatchManual() {
-        return -operatorGamepad.getY(Hand.kLeft);
+        return -operatorGamepad.getY(Hand.kLeft) * (operatorGamepad.getStartButton() ? 0.2 : 1.0);
     }
 
     @Override
