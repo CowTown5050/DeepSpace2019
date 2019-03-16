@@ -50,7 +50,7 @@ public final class Hatch extends Subsystem {
         // TODO hatch.config_IntegralZone(0, 30);
 
         hatch.configMotionCruiseVelocity(500, SETTINGS_TIMEOUT);
-        hatch.configMotionAcceleration(500, SETTINGS_TIMEOUT);
+        hatch.configMotionAcceleration(1000, SETTINGS_TIMEOUT);
 
         resetSensorPosition();
     }

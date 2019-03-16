@@ -30,7 +30,7 @@ public final class Vision {
     }
 
     private static void configureFishCamera(UsbCamera camera) {
-        camera.setResolution(360, 240);
+        camera.setResolution(160, 120);
 
     }
 
