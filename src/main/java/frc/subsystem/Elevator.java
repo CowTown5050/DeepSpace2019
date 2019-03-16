@@ -160,7 +160,7 @@ public final class Elevator extends Subsystem {
             periodicIo.desiredManualOutputPower = (Math.abs(periodicIo.desiredManualOutputPower) < MANUAL_MOVEMENT_DEADBAND) ? 0.0 : periodicIo.desiredManualOutputPower;
             value = periodicIo.desiredManualOutputPower;
             controlType = ControlType.kDutyCycle;
-        } else if (periodicIo.hasZeroed) {
+        } else {
             if (periodicIo.holdPosition) {
                 controlType = ControlType.kVelocity;
                 value = 0.0;
@@ -169,9 +169,6 @@ public final class Elevator extends Subsystem {
                 value = ((ELEVATOR_POSITION_LOOP_KP * periodicIo.currentErrorMeters) + (ELEVATOR_POSITION_LOOP_KV * periodicIo.currentVelocity)) * MAX_RPM;
                 value = Math.abs(value) > MAX_RPM ? Math.copySign(MAX_RPM, value) : value;
             }
-        } else {
-            controlType = ControlType.kDutyCycle;
-            value = ZEROING_PERCENT_OUTPUT;
         }
 
         if (periodicIo.bottomLimitTriggered && value >= -1.0E-05) {
